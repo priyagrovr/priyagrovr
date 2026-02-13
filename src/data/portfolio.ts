@@ -19,7 +19,15 @@ import {
   SiVercel,
   SiNetlify,
   SiOpenai,
+  SiHeroku,
+  SiRailway,
+  SiRender,
+  SiSupabase,
+  SiPostgresql,
+  SiFirebase,
 } from "react-icons/si";
+import { VscAzure } from "react-icons/vsc";
+import { HiCircleStack } from "react-icons/hi2";
 import type { IconType } from "react-icons";
 
 export interface Skill {
@@ -64,7 +72,7 @@ export const personalInfo = {
   role: "Senior Full Stack Developer",
   tagline:
     "AI-Powered Full Stack Developer with 13+ years of experience building scalable, production-ready web & mobile applications",
-  email: "hello@priyagrover.dev",
+  email: "priya.grover1988@gmail.com",
   bio: `I'm a freelance Full Stack Developer with 13+ years of experience building scalable, production-ready web and mobile applications. I specialize in turning complex business requirements into clean, reliable, and user-friendly digital products.
 
 I hold a Master's degree in Computer Applications (MCA) and bring a strong engineering mindset combined with practical, real-world experience.
@@ -94,11 +102,19 @@ export const skills: Skill[] = [
   { name: "WordPress", icon: SiWordpress, level: 80, category: "Backend" },
   { name: "OpenAI / LLMs", icon: SiOpenai, level: 85, category: "AI & LLM" },
   { name: "MySQL", icon: SiMysql, level: 85, category: "Database" },
+  { name: "PostgreSQL", icon: SiPostgresql, level: 80, category: "Database" },
   { name: "MongoDB", icon: SiMongodb, level: 80, category: "Database" },
+  { name: "Firebase", icon: SiFirebase, level: 80, category: "Database" },
+  { name: "Azure SQL", icon: VscAzure, level: 75, category: "Database" },
   { name: "AWS", icon: SiAmazonwebservices, level: 80, category: "DevOps & Cloud" },
   { name: "Vercel", icon: SiVercel, level: 90, category: "DevOps & Cloud" },
   { name: "Netlify", icon: SiNetlify, level: 85, category: "DevOps & Cloud" },
   { name: "Git", icon: SiGit, level: 90, category: "DevOps & Cloud" },
+  { name: "Heroku", icon: SiHeroku, level: 80, category: "DevOps & Cloud" },
+  { name: "Railway", icon: SiRailway, level: 80, category: "DevOps & Cloud" },
+  { name: "Render", icon: SiRender, level: 80, category: "DevOps & Cloud" },
+  { name: "Neon", icon: HiCircleStack, level: 75, category: "DevOps & Cloud" },
+  { name: "Supabase", icon: SiSupabase, level: 80, category: "DevOps & Cloud" },
 ];
 
 export const projects: Project[] = [
@@ -287,19 +303,65 @@ export const testimonials: Testimonial[] = [
 
 export interface GalleryItem {
   title: string;
-  category: string;
+  description: string;
+  category: "All" | "Web" | "Mobile" | "AI";
+  icon: string;
+  gradient: string;
+  tags: string[];
 }
 
 export const galleryItems: GalleryItem[] = [
-  { title: "AI Dashboard UI", category: "Web App" },
-  { title: "E-Commerce Mobile App", category: "Mobile" },
-  { title: "SaaS Analytics Platform", category: "Web App" },
-  { title: "React Native Chat App", category: "Mobile" },
-  { title: "Portfolio Website Design", category: "Design" },
-  { title: "Admin Panel Interface", category: "Web App" },
+  {
+    title: "AI Dashboard",
+    description: "Real-time analytics with LLM-powered insights",
+    category: "AI",
+    icon: "brain",
+    gradient: "from-purple-600 via-violet-600 to-indigo-600",
+    tags: ["OpenAI", "Next.js", "D3.js"],
+  },
+  {
+    title: "E-Commerce Store",
+    description: "Full-stack storefront with payment integration",
+    category: "Web",
+    icon: "cart",
+    gradient: "from-blue-600 via-cyan-600 to-teal-500",
+    tags: ["React", "Stripe", "Node.js"],
+  },
+  {
+    title: "Chat Mobile App",
+    description: "Cross-platform messenger with real-time sync",
+    category: "Mobile",
+    icon: "chat",
+    gradient: "from-violet-600 via-purple-600 to-fuchsia-500",
+    tags: ["React Native", "Firebase"],
+  },
+  {
+    title: "SaaS Platform",
+    description: "Multi-tenant platform with team collaboration",
+    category: "Web",
+    icon: "cloud",
+    gradient: "from-indigo-600 via-blue-600 to-cyan-500",
+    tags: ["Next.js", "PostgreSQL", "AWS"],
+  },
+  {
+    title: "AI Chatbot Widget",
+    description: "Embeddable chatbot with RAG and custom agents",
+    category: "AI",
+    icon: "bot",
+    gradient: "from-fuchsia-600 via-purple-600 to-violet-600",
+    tags: ["Python", "LangChain", "React"],
+  },
+  {
+    title: "Fitness Tracker",
+    description: "Health monitoring with charts and reminders",
+    category: "Mobile",
+    icon: "heart",
+    gradient: "from-rose-500 via-pink-500 to-purple-600",
+    tags: ["React Native", "TypeScript"],
+  },
 ];
 
-export const whatsappNumber = "+911234567890";
+export const whatsappNumber = "+917355113377";
 
 export const mapConfig = {
   embedUrl:

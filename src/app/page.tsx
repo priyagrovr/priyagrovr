@@ -1,5 +1,4 @@
-import EmergencyBanner from "@/components/EmergencyBanner";
-import Navbar from "@/components/Navbar";
+import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Skills from "@/components/Skills";
@@ -17,8 +16,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 export default function Home() {
   return (
     <>
-      <EmergencyBanner />
-      <Navbar />
+      <Header />
       <main>
         <Hero />
         <About />

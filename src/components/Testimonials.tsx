@@ -2,31 +2,49 @@
 
 import { testimonials } from "@/data/portfolio";
 import { useLanguage } from "@/i18n/LanguageContext";
-import { FiMessageCircle } from "react-icons/fi";
+import { HiStar } from "react-icons/hi2";
 
 export default function Testimonials() {
   const { t } = useLanguage();
 
   return (
-    <section id="testimonials" className="py-20 px-4">
+    <section
+      id="testimonials"
+      className="py-24 px-4 bg-gray-50/80 dark:bg-gray-900/30"
+    >
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">
+        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">
           {t.testimonials_title}{" "}
           <span className="gradient-text">{t.testimonials_what}</span>
         </h2>
+        <p className="text-center text-gray-500 dark:text-gray-500 mb-16 max-w-lg mx-auto">
+          Feedback from colleagues and clients I&apos;ve worked with
+        </p>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((item, index) => (
             <div
               key={index}
-              className="p-6 rounded-xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:border-purple-500/50 dark:hover:border-purple-500/50 transition-all flex flex-col"
+              className="relative p-6 rounded-2xl bg-white dark:bg-gray-900/80 border border-gray-100 dark:border-gray-800 card-hover flex flex-col"
             >
-              <FiMessageCircle className="w-6 h-6 text-purple-500 dark:text-purple-400 mb-4" />
-              <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-6 flex-1">
+              {/* Stars */}
+              <div className="flex gap-0.5 mb-4">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <HiStar
+                    key={i}
+                    className="w-4 h-4 text-amber-400"
+                  />
+                ))}
+              </div>
+
+              {/* Quote */}
+              <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed flex-1 mb-6">
                 &ldquo;{item.text}&rdquo;
               </p>
-              <div className="flex items-center gap-3 pt-4 border-t border-gray-100 dark:border-gray-800">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 flex items-center justify-center text-white text-sm font-bold">
+
+              {/* Author */}
+              <div className="flex items-center gap-3 pt-5 border-t border-gray-100 dark:border-gray-800">
+                <div className="w-11 h-11 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center text-white text-sm font-bold shadow-lg shadow-purple-500/20">
                   {item.name
                     .split(" ")
                     .map((n) => n[0])
@@ -37,9 +55,14 @@ export default function Testimonials() {
                     {item.name}
                   </p>
                   <p className="text-xs text-gray-500 dark:text-gray-400">
-                    {item.role}, {item.company}
+                    {item.role} @ {item.company}
                   </p>
                 </div>
+              </div>
+
+              {/* Large quote decoration */}
+              <div className="absolute top-4 right-5 text-6xl leading-none text-gray-100 dark:text-gray-800 font-serif pointer-events-none select-none">
+                &ldquo;
               </div>
             </div>
           ))}

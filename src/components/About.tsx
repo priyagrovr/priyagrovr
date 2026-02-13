@@ -2,49 +2,92 @@
 
 import { personalInfo } from "@/data/portfolio";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { HiCodeBracket, HiBriefcase, HiAcademicCap } from "react-icons/hi2";
+
+const highlights = [
+  { icon: HiCodeBracket, label: "13+ Years", sub: "Experience" },
+  { icon: HiBriefcase, label: "50+", sub: "Projects" },
+  { icon: HiAcademicCap, label: "MCA", sub: "Degree" },
+];
 
 export default function About() {
   const { t } = useLanguage();
 
   return (
-    <section id="about" className="py-20 px-4">
+    <section id="about" className="py-24 px-4">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">
+        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16">
           {t.about_title} <span className="gradient-text">{t.about_me}</span>
         </h2>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="flex justify-center">
-            <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-2xl overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-500 via-violet-500 to-blue-500 animate-gradient" />
-              <div className="absolute inset-1 rounded-2xl bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
-                <span className="text-6xl sm:text-7xl font-bold gradient-text">
-                  {personalInfo.name
-                    .split(" ")
-                    .map((n) => n[0])
-                    .join("")}
-                </span>
+        <div className="grid md:grid-cols-5 gap-12 items-center">
+          {/* Profile card */}
+          <div className="md:col-span-2 flex justify-center">
+            <div className="relative">
+              {/* Spinning gradient ring */}
+              <div className="absolute -inset-3 rounded-3xl bg-gradient-to-r from-purple-500 via-violet-500 to-blue-500 animate-spin-slow opacity-20 blur-sm" />
+              <div className="relative w-64 h-64 sm:w-72 sm:h-72 rounded-3xl overflow-hidden animate-pulse-glow">
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-500 via-violet-500 to-blue-500 animate-gradient" />
+                <div className="absolute inset-[3px] rounded-3xl bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
+                  <span className="text-7xl font-bold gradient-text">
+                    {personalInfo.name
+                      .split(" ")
+                      .map((n) => n[0])
+                      .join("")}
+                  </span>
+                </div>
               </div>
+
+              {/* Stat cards floating */}
+              {highlights.map((item, i) => {
+                const Icon = item.icon;
+                const positions = [
+                  "-top-4 -right-4",
+                  "-bottom-4 -left-4",
+                  "-bottom-4 -right-4",
+                ];
+                return (
+                  <div
+                    key={i}
+                    className={`absolute ${positions[i]} px-3 py-2 rounded-xl bg-white dark:bg-gray-800 shadow-lg border border-gray-100 dark:border-gray-700 animate-float`}
+                    style={{ animationDelay: `${i * 0.5}s` }}
+                  >
+                    <div className="flex items-center gap-2">
+                      <Icon className="w-4 h-4 text-purple-500" />
+                      <div>
+                        <p className="text-xs font-bold text-gray-900 dark:text-gray-100">
+                          {item.label}
+                        </p>
+                        <p className="text-[10px] text-gray-500 dark:text-gray-400">
+                          {item.sub}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
 
-          <div>
-            <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-gray-100">
+          {/* Bio */}
+          <div className="md:col-span-3">
+            <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
               {personalInfo.role}
             </h3>
-            <p className="text-gray-600 dark:text-gray-400 leading-relaxed whitespace-pre-line">
+            <div className="w-12 h-1 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 mb-6" />
+            <p className="text-gray-600 dark:text-gray-400 leading-relaxed whitespace-pre-line text-[15px]">
               {personalInfo.bio}
             </p>
-            <div className="mt-6 flex gap-4">
+            <div className="mt-8 flex flex-wrap gap-3">
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 text-white font-medium text-sm hover:opacity-90 transition-opacity"
+                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 text-white font-medium text-sm hover:shadow-lg hover:shadow-purple-500/25 transition-all hover:-translate-y-0.5"
               >
                 {t.about_get_in_touch}
               </a>
               <a
                 href={personalInfo.resumeUrl}
-                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 font-medium text-sm hover:border-purple-500 dark:hover:border-purple-400 transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border-2 border-gray-200 dark:border-gray-800 text-gray-700 dark:text-gray-300 font-medium text-sm hover:border-purple-400 dark:hover:border-purple-500 transition-all hover:-translate-y-0.5"
               >
                 {t.about_download_cv}
               </a>
