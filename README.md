@@ -4,7 +4,7 @@ A modern, high-performance personal portfolio website built with **Next.js 15**,
 
 ## Live Demo
 
-Deploy to Vercel with one click:
+**[https://priyagrover.vercel.app](https://priyagrover.vercel.app)**
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/priyagrovr/priyagrover)
 
@@ -225,7 +225,7 @@ This project is optimized for **Vercel**:
 1. Push to GitHub
 2. Import the repository in [Vercel](https://vercel.com)
 3. Set environment variables:
-   - `NEXT_PUBLIC_SITE_URL` = your domain (e.g., `https://priyagrover.dev`)
+   - `NEXT_PUBLIC_SITE_URL` = your domain (e.g., `https://priyagrover.vercel.app`)
    - `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` = your GSC verification code
 4. Deploy — Vercel auto-detects Next.js and builds
 

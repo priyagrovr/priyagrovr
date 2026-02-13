@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://priyagrover.dev";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://priyagrover.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -210,11 +210,75 @@ export default function RootLayout({
     ],
   };
 
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "@id": `${siteUrl}/#service`,
+    name: "Priya Grover — Freelance Full Stack Development",
+    description:
+      "Freelance full stack development services including web applications, mobile apps, AI/LLM integrations, and SaaS products. 13+ years of experience.",
+    url: siteUrl,
+    provider: { "@id": `${siteUrl}/#person` },
+    areaServed: {
+      "@type": "GeoCircle",
+      geoMidpoint: {
+        "@type": "GeoCoordinates",
+        latitude: 30.71,
+        longitude: 76.69,
+      },
+      geoRadius: "50000",
+    },
+    serviceType: [
+      "Web Development",
+      "Mobile App Development",
+      "Full Stack Development",
+      "AI Integration",
+      "SaaS Development",
+      "E-Commerce Development",
+      "React Development",
+      "Next.js Development",
+    ],
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Full Stack Development Services",
+      itemListElement: [
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Frontend Development",
+            description:
+              "React, Next.js, React Native, TypeScript, Tailwind CSS",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Backend Development",
+            description:
+              "Node.js, Python, Django, PHP, Laravel, REST APIs",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "AI & LLM Integration",
+            description:
+              "OpenAI GPT, RAG, custom AI agents, LLM-powered SaaS features",
+          },
+        },
+      ],
+    },
+  };
+
   const jsonLdArray = [
     personSchema,
     websiteSchema,
     profilePageSchema,
     breadcrumbSchema,
+    serviceSchema,
   ];
 
   return (
