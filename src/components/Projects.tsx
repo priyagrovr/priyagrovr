@@ -24,7 +24,7 @@ export default function Projects() {
           <span className="gradient-text">{t.projects_featured}</span>
         </h2>
         <p className="text-center text-gray-500 dark:text-gray-500 mb-16 max-w-lg mx-auto">
-          A selection of projects I&apos;ve built and contributed to
+          {t.projects_subtitle}
         </p>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

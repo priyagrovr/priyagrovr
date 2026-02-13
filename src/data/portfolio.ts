@@ -25,16 +25,19 @@ import {
   SiSupabase,
   SiPostgresql,
   SiFirebase,
+  SiDocker,
+  SiPostman,
+  SiAnthropic,
 } from "react-icons/si";
-import { VscAzure } from "react-icons/vsc";
-import { HiCircleStack } from "react-icons/hi2";
+import { VscAzure, VscVscode } from "react-icons/vsc";
+import { HiCircleStack, HiCursorArrowRays } from "react-icons/hi2";
 import type { IconType } from "react-icons";
 
 export interface Skill {
   name: string;
   icon: IconType;
   level: number; // 0-100
-  category: "Frontend" | "Backend" | "AI & LLM" | "DevOps & Cloud" | "Database";
+  category: "Frontend" | "Backend" | "AI & LLM" | "DevOps & Cloud" | "Database" | "Tools";
 }
 
 export interface Project {
@@ -115,6 +118,11 @@ export const skills: Skill[] = [
   { name: "Render", icon: SiRender, level: 80, category: "DevOps & Cloud" },
   { name: "Neon", icon: HiCircleStack, level: 75, category: "DevOps & Cloud" },
   { name: "Supabase", icon: SiSupabase, level: 80, category: "DevOps & Cloud" },
+  { name: "Docker", icon: SiDocker, level: 80, category: "DevOps & Cloud" },
+  { name: "VS Code", icon: VscVscode, level: 95, category: "Tools" },
+  { name: "Cursor Pro", icon: HiCursorArrowRays, level: 85, category: "Tools" },
+  { name: "Claude Code", icon: SiAnthropic, level: 85, category: "Tools" },
+  { name: "Postman", icon: SiPostman, level: 85, category: "Tools" },
 ];
 
 export const projects: Project[] = [
@@ -282,22 +290,10 @@ export interface Testimonial {
 
 export const testimonials: Testimonial[] = [
   {
-    name: "Bart Matz",
-    role: "Co-founder & CTO (Principal AI Architect)",
+    name: "Bani Maiti",
+    role: "Cofounder & CTO | Principal AI Architect | Director of Platform",
     company: "nSpire AI",
-    text: "Priya is one of the most efficient and dedicated developers I've had the pleasure of working with. She combines strong technical ability with clear communication and a genuinely collaborative spirit — a rare find in our industry. On our team, Priya consistently delivered clean, high-quality code while keeping things running smoothly through clear communication and openness to feedback. She's the kind of teammate who elevates everyone around her.",
-  },
-  {
-    name: "Sarah Johnson",
-    role: "Product Manager",
-    company: "Tech Startup",
-    text: "Working with Priya was an exceptional experience. She took our vague requirements and turned them into a polished, production-ready application. Her attention to detail and proactive communication made the entire project seamless.",
-  },
-  {
-    name: "Michael Chen",
-    role: "Engineering Lead",
-    company: "Digital Agency",
-    text: "Priya's full-stack expertise is remarkable. She delivered a complex React Native app with a Django backend ahead of schedule. Her code quality and testing practices set a high standard for the rest of the team.",
+    text: "Priya is one of the most efficient and dedicated developers I've had the pleasure of working with. She combines strong technical ability with clear communication and a genuinely collaborative spirit — a rare combination.\n\nOn our team, Priya consistently delivered clean, high-quality code while keeping things running smoothly through clear communication and openness to feedback. She's the kind of teammate who elevates everyone around her.\n\nAny team would be lucky to have Priya. Highly recommended.",
   },
 ];
 

@@ -30,9 +30,9 @@ export default function Footer() {
               |
             </span>
             <span className="text-sm text-gray-500 dark:text-gray-400 flex items-center gap-1">
-              Made with{" "}
+              {t.footer_made_with}{" "}
               <FiHeart className="w-3 h-3 text-red-500 inline" />{" "}
-              by {personalInfo.name}
+              {t.footer_by} {personalInfo.name}
             </span>
           </div>
 

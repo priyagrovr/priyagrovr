@@ -87,7 +87,7 @@ export default function GitHubStats() {
             ))}
           </div>
           <div className="flex items-center justify-end gap-1 mt-3">
-            <span className="text-[10px] text-gray-400 mr-1">Less</span>
+            <span className="text-[10px] text-gray-400 mr-1">{t.github_less}</span>
             {[0.08, 0.2, 0.4, 0.65, 0.9].map((o) => (
               <div
                 key={o}
@@ -95,7 +95,7 @@ export default function GitHubStats() {
                 style={{ opacity: o }}
               />
             ))}
-            <span className="text-[10px] text-gray-400 ml-1">More</span>
+            <span className="text-[10px] text-gray-400 ml-1">{t.github_more}</span>
           </div>
         </div>
       </div>

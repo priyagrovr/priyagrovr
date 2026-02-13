@@ -2,6 +2,7 @@
 
 import { skills } from "@/data/portfolio";
 import { useLanguage } from "@/i18n/LanguageContext";
+import type { Translations } from "@/i18n/translations";
 
 const categories = [
   "Frontend",
@@ -9,7 +10,17 @@ const categories = [
   "AI & LLM",
   "Database",
   "DevOps & Cloud",
+  "Tools",
 ] as const;
+
+const categoryTranslationKeys: Record<(typeof categories)[number], keyof Translations> = {
+  Frontend: "skills_cat_frontend",
+  Backend: "skills_cat_backend",
+  "AI & LLM": "skills_cat_ai",
+  Database: "skills_cat_database",
+  "DevOps & Cloud": "skills_cat_devops",
+  Tools: "skills_cat_tools",
+};
 
 export default function Skills() {
   const { t } = useLanguage();
@@ -22,7 +33,7 @@ export default function Skills() {
           <span className="gradient-text">{t.skills_tech}</span>
         </h2>
         <p className="text-center text-gray-500 dark:text-gray-500 mb-16 max-w-lg mx-auto">
-          Technologies and tools I work with daily
+          {t.skills_subtitle}
         </p>
 
         <div className="space-y-12">
@@ -31,17 +42,18 @@ export default function Skills() {
               (s) => s.category === category
             );
             if (categorySkills.length === 0) return null;
+            const label = t[categoryTranslationKeys[category]];
 
             return (
               <div key={category}>
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-purple-500 to-blue-500 flex items-center justify-center">
                     <span className="text-white text-xs font-bold">
-                      {category[0]}
+                      {label[0]}
                     </span>
                   </div>
                   <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200">
-                    {category}
+                    {label}
                   </h3>
                   <div className="flex-1 h-px bg-gray-200 dark:bg-gray-800" />
                 </div>

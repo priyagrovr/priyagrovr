@@ -4,10 +4,10 @@ import { personalInfo } from "@/data/portfolio";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { HiCodeBracket, HiBriefcase, HiAcademicCap } from "react-icons/hi2";
 
-const highlights = [
-  { icon: HiCodeBracket, label: "13+ Years", sub: "Experience" },
-  { icon: HiBriefcase, label: "50+", sub: "Projects" },
-  { icon: HiAcademicCap, label: "MCA", sub: "Degree" },
+const highlightKeys = [
+  { icon: HiCodeBracket, labelKey: "about_years" as const, subKey: "about_experience_label" as const },
+  { icon: HiBriefcase, labelKey: "about_projects_count" as const, subKey: "about_projects_label" as const },
+  { icon: HiAcademicCap, labelKey: "about_degree" as const, subKey: "about_degree_label" as const },
 ];
 
 export default function About() {
@@ -39,7 +39,7 @@ export default function About() {
               </div>
 
               {/* Stat cards floating */}
-              {highlights.map((item, i) => {
+              {highlightKeys.map((item, i) => {
                 const Icon = item.icon;
                 const positions = [
                   "-top-4 -right-4",
@@ -56,10 +56,10 @@ export default function About() {
                       <Icon className="w-4 h-4 text-purple-500" />
                       <div>
                         <p className="text-xs font-bold text-gray-900 dark:text-gray-100">
-                          {item.label}
+                          {t[item.labelKey]}
                         </p>
                         <p className="text-[10px] text-gray-500 dark:text-gray-400">
-                          {item.sub}
+                          {t[item.subKey]}
                         </p>
                       </div>
                     </div>

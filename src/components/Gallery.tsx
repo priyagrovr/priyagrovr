@@ -41,7 +41,7 @@ export default function Gallery() {
           <span className="gradient-text">{t.gallery_my}</span>
         </h2>
         <p className="text-center text-gray-500 dark:text-gray-500 mb-10 max-w-lg mx-auto">
-          Visual showcase of projects and designs
+          {t.gallery_subtitle}
         </p>
 
         {/* Filter tabs */}
@@ -128,7 +128,7 @@ export default function Gallery() {
 
         {filtered.length === 0 && (
           <p className="text-center text-gray-400 dark:text-gray-500 py-12">
-            No items in this category yet.
+            {t.gallery_no_items}
           </p>
         )}
       </div>

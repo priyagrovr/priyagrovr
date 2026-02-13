@@ -41,7 +41,7 @@ export default function Contact() {
             <div className="p-5 rounded-2xl bg-white dark:bg-gray-900/80 border border-gray-100 dark:border-gray-800">
               <FiMail className="w-5 h-5 text-purple-500 mb-3" />
               <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">
-                Email
+                {t.contact_email_label}
               </p>
               <a
                 href={`mailto:${personalInfo.email}`}
@@ -53,7 +53,7 @@ export default function Contact() {
 
             <div className="p-5 rounded-2xl bg-white dark:bg-gray-900/80 border border-gray-100 dark:border-gray-800">
               <p className="text-xs text-gray-500 dark:text-gray-400 mb-3">
-                Social
+                {t.contact_social}
               </p>
               <div className="flex gap-3">
                 {socialLinks.map((link) => {
