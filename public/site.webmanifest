@@ -1,0 +1,33 @@
+{
+  "name": "Priya Grover — Senior Full Stack Developer",
+  "short_name": "Priya Grover",
+  "description": "Senior Full Stack Developer with 13+ years of experience. React, Next.js, Node.js, Python, AI/LLM expert.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#030712",
+  "theme_color": "#a855f7",
+  "categories": ["business", "productivity", "developer"],
+  "lang": "en-US",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-icon",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

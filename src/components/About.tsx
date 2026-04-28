@@ -3,6 +3,7 @@
 import { personalInfo } from "@/data/portfolio";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { HiCodeBracket, HiBriefcase, HiAcademicCap } from "react-icons/hi2";
+import { FaFilePdf, FaFileWord } from "react-icons/fa";
 
 const highlightKeys = [
   { icon: HiCodeBracket, labelKey: "about_years" as const, subKey: "about_experience_label" as const },
@@ -86,10 +87,20 @@ export default function About() {
                 {t.about_get_in_touch}
               </a>
               <a
-                href={personalInfo.resumeUrl}
-                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border-2 border-gray-200 dark:border-gray-800 text-gray-700 dark:text-gray-300 font-medium text-sm hover:border-purple-400 dark:hover:border-purple-500 transition-all hover:-translate-y-0.5"
+                href={personalInfo.resumePdf}
+                download={`${personalInfo.resumeFileName}.pdf`}
+                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border-2 border-gray-200 dark:border-gray-800 text-gray-700 dark:text-gray-300 font-medium text-sm hover:border-red-400 hover:text-red-500 dark:hover:border-red-500 transition-all hover:-translate-y-0.5"
               >
-                {t.about_download_cv}
+                <FaFilePdf className="w-4 h-4 text-red-500" />
+                {t.about_download_cv} (PDF)
+              </a>
+              <a
+                href={personalInfo.resumeDoc}
+                download={`${personalInfo.resumeFileName}.docx`}
+                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border-2 border-gray-200 dark:border-gray-800 text-gray-700 dark:text-gray-300 font-medium text-sm hover:border-blue-400 hover:text-blue-500 dark:hover:border-blue-500 transition-all hover:-translate-y-0.5"
+              >
+                <FaFileWord className="w-4 h-4 text-blue-500" />
+                {t.about_download_cv} (DOCX)
               </a>
             </div>
           </div>

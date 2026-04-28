@@ -85,7 +85,10 @@ On the frontend, I create modern, high-performance user interfaces using React, 
 On the backend, I design and build secure, scalable systems using Node.js, PHP (WordPress, Laravel), and Python (Django) — including RESTful APIs, authentication flows, and third-party integrations.
 
 I actively work on integrating AI and Large Language Models (LLMs) into existing and new products, including OpenAI GPT-based chat and workflow automation, custom AI agents, and embedding LLMs into SaaS products using secure APIs.`,
-  resumeUrl: "#",
+  resumeUrl: "/resume/Priya-Grover-Resume.pdf",
+  resumePdf: "/resume/Priya-Grover-Resume.pdf",
+  resumeDoc: "/resume/Priya-Grover-Resume.docx",
+  resumeFileName: "Priya-Grover-Resume",
 };
 
 export const skills: Skill[] = [

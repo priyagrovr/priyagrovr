@@ -1,8 +1,9 @@
 "use client";
 
-import { personalInfo, socialLinks } from "@/data/portfolio";
+import { personalInfo, socialLinks, whatsappNumber } from "@/data/portfolio";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { FiGithub, FiLinkedin, FiTwitter, FiHeart } from "react-icons/fi";
+import { FaWhatsapp } from "react-icons/fa";
 
 const socialIcons: Record<string, React.ElementType> = {
   GitHub: FiGithub,
@@ -36,7 +37,16 @@ export default function Footer() {
             </span>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 flex-wrap justify-center">
+            <a
+              href={`https://wa.me/${whatsappNumber.replace(/[^0-9]/g, "")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-9 h-9 rounded-lg bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-green-500 hover:text-white hover:bg-green-500 transition-all"
+              aria-label="WhatsApp"
+            >
+              <FaWhatsapp className="w-4 h-4" />
+            </a>
             {socialLinks.map((link) => {
               const Icon = socialIcons[link.name] || FiGithub;
               return (

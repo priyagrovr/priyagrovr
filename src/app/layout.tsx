@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import { LanguageProvider } from "@/i18n/LanguageContext";
@@ -97,10 +97,41 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: siteUrl,
+    languages: {
+      "en-US": siteUrl,
+      "fr-FR": siteUrl,
+      "de-DE": siteUrl,
+      "es-ES": siteUrl,
+      "nl-NL": siteUrl,
+      "it-IT": siteUrl,
+      "hi-IN": siteUrl,
+      "pa-IN": siteUrl,
+      "x-default": siteUrl,
+    },
   },
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
   },
+  manifest: "/site.webmanifest",
+  formatDetection: {
+    telephone: true,
+    email: true,
+    address: true,
+  },
+  applicationName: "Priya Grover Portfolio",
+  referrer: "origin-when-cross-origin",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  viewportFit: "cover",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#030712" },
+  ],
+  colorScheme: "light dark",
 };
 
 export default function RootLayout({
@@ -171,6 +202,23 @@ export default function RootLayout({
       addressRegion: "Punjab",
       addressCountry: "IN",
     },
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        telephone: "+917355113377",
+        contactType: "customer support",
+        areaServed: "Worldwide",
+        availableLanguage: ["English", "Hindi", "Punjabi"],
+        contactOption: "TollFree",
+      },
+      {
+        "@type": "ContactPoint",
+        telephone: "+917355113377",
+        contactType: "sales",
+        areaServed: "Worldwide",
+        availableLanguage: ["English", "Hindi", "Punjabi"],
+      },
+    ],
   };
 
   const websiteSchema = {
